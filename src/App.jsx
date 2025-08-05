@@ -17,14 +17,7 @@ function App() {
           element={<Content />}
         />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   );
