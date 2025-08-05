@@ -10,7 +10,7 @@ console.log("📚 SEM2V2 - Running with real backend API");
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter basename="/sem5">
         <App />
       </BrowserRouter>
     </ErrorBoundary>
