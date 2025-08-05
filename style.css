@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+html {
+  /* Enable dark mode by default */
+  color-scheme: dark;
+}
+
+body {
+  background-color: #000000;
+  color: #e7e7e7;
+}
