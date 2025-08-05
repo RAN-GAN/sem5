@@ -1,5 +1,23 @@
 // API service to interact with the backend
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const getApiUrl = () => {
+  // Check if we have an environment variable set
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+
+  // Auto-detect based on current domain
+  const currentHost = window.location.hostname;
+
+  // If running on GitHub Pages or production domain
+  if (currentHost !== "localhost" && currentHost !== "127.0.0.1") {
+    return "https://guestmanagement.onrender.com"; // UPDATE THIS!
+  }
+
+  // Default to localhost for development
+  return "http://localhost:5000";
+};
+
+const API_URL = getApiUrl();
 
 // Fetch all courses
 export const fetchCourses = async () => {

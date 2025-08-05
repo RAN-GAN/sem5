@@ -7,9 +7,10 @@
     "dev": "vite",
     "dev-host": "vite --host",
     "build": "vite build",
+    "build:gh-pages": "vite build --mode production",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build:gh-pages && gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
