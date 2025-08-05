@@ -7,7 +7,19 @@ const api = realApi;
 
 const fetchCoursesWithDetailsFallback = async () => {
   console.log("Using fallback implementation for fetchCoursesWithDetails");
-  const response = await fetch("http://localhost:5000/courses?detailed=true");
+  // Use the same API URL logic as the other services
+  const getApiUrl = () => {
+    if (import.meta.env.VITE_API_URL) {
+      return import.meta.env.VITE_API_URL;
+    }
+    const currentHost = window.location.hostname;
+    if (currentHost !== "localhost" && currentHost !== "127.0.0.1") {
+      return "https://guestmanagement.onrender.com";
+    }
+    return "http://localhost:5000";
+  };
+
+  const response = await fetch(`${getApiUrl()}/courses?detailed=true`);
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
